@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <AssemblyName>doob.Middler.Common</AssemblyName>
+    <RootNamespace>doob.Middler.Common</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Middler</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Middler</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Middler.Common</PackageId>
+    <Product>doob.Middler.Common</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Middler.Common.SharedModels\Middler.Common.SharedModels.csproj" />
+  </ItemGroup>
+
+</Project>

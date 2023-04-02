@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+	  <AssemblyName>doob.Middler.Action.UrlRewrite</AssemblyName>
+	  <RootNamespace>doob.Middler.Action.UrlRewrite</RootNamespace>
+	  <LangVersion>latest</LangVersion>
+	  <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Bernhard Windisch</Authors>
+		<Company>-</Company>
+		<Description></Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/doob-at/Middler</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/doob-at/Middler</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>doob.Middler.Action.UrlRewrite</PackageId>
+		<Product>doob.Middler.Action.UrlRewrite</Product>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Scriban" Version="5.7.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Middler.Common\Middler.Common.csproj" />
+	</ItemGroup>
+
+</Project>

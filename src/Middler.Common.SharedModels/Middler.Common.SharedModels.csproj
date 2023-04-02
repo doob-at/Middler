@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <AssemblyName>doob.Middler.Common.SharedModels</AssemblyName>
+    <RootNamespace>doob.Middler.Common.SharedModels</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Middler</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Middler</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Middler.Common.SharedModels</PackageId>
+    <Product>doob.Middler.Common.SharedModels</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="doob.Reflectensions.ExpandableObject" Version="6.4.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

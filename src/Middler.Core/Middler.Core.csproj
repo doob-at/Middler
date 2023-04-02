@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <AssemblyName>doob.Middler.Core</AssemblyName>
+    <RootNamespace>doob.Middler.Core</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description></Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/doob-at/Middler</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/doob-at/Middler</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>doob.Middler</PackageId>
+    <Product>doob.Middler</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Middler.Common.StreamHelper\Middler.Common.StreamHelper.csproj" />
+    <ProjectReference Include="..\Middler.Common\Middler.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="doob.Reflectensions.CommonExtensions" Version="6.4.2" />
+    <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
+    <PackageReference Include="NamedServices.Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>
