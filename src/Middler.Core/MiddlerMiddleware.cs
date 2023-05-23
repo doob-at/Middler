@@ -45,13 +45,13 @@ namespace doob.Middler.Core
             EnsureLoggers(httpContext);
             //Stream originalBody = null;
             
-            var originalStream = httpContext.Response.Body;
-            var aStream = new AutoStream(opts =>
-                opts
-                    .WithMemoryThreshold(middlerOptions.AutoStreamDefaultMemoryThreshold)
-                    .WithTempDirectory(middlerOptions.TemporaryFilePath)
-                    .WithFilePrefix("middler"), httpContext.RequestAborted);
-            httpContext.Response.Body = aStream;
+            //var originalStream = httpContext.Response.Body;
+            //var aStream = new AutoStream(opts =>
+            //    opts
+            //        .WithMemoryThreshold(middlerOptions.AutoStreamDefaultMemoryThreshold)
+            //        .WithTempDirectory(middlerOptions.TemporaryFilePath)
+            //        .WithFilePrefix("middler"), httpContext.RequestAborted);
+            //httpContext.Response.Body = aStream;
 
 
             var middlerMap = httpContext.RequestServices.GetRequiredService<IMiddlerMap>();
@@ -111,7 +111,7 @@ namespace doob.Middler.Core
 
                 if (executedActions.Any())
                 {
-                    await WriteToAspNetCoreResponseBodyAsync(httpContext, middlerContext, originalStream).ConfigureAwait(false);
+                    //await WriteToAspNetCoreResponseBodyAsync(httpContext, middlerContext, originalStream).ConfigureAwait(false);
                 }
                 else
                 {
@@ -214,43 +214,43 @@ namespace doob.Middler.Core
         }
 
 
-        private async Task WriteToAspNetCoreResponseBodyAsync(HttpContext context, MiddlerContext middlerContext, Stream originalStream)
-        {
+        //private async Task WriteToAspNetCoreResponseBodyAsync(HttpContext context, MiddlerContext middlerContext, Stream originalStream)
+        //{
 
-            if (!context.Response.HasStarted)
-            {
-                foreach (var (key, value) in middlerContext.MiddlerResponseContext.Headers)
-                {
-                    context.Response.Headers[key] = value;
-                }
+        //    if (!context.Response.HasStarted)
+        //    {
+        //        foreach (var (key, value) in middlerContext.MiddlerResponseContext.Headers)
+        //        {
+        //            context.Response.Headers[key] = value;
+        //        }
 
-                if (middlerContext.Response.StatusCode != 0)
-                {
-                    context.Response.StatusCode = middlerContext.Response.StatusCode;
-                }
-            }
+        //        if (middlerContext.Response.StatusCode != 0)
+        //        {
+        //            context.Response.StatusCode = middlerContext.Response.StatusCode;
+        //        }
+        //    }
 
-            var middlerStream = context.Response.Body;
-            context.Response.Body = originalStream;
+        //    var middlerStream = context.Response.Body;
+        //    context.Response.Body = originalStream;
 
-            if (context.Response.Body.CanWrite)
-            {
-                if(middlerStream.CanSeek)
-                    middlerStream.Seek(0, SeekOrigin.Begin);
+        //    if (context.Response.Body.CanWrite)
+        //    {
+        //        if(middlerStream.CanSeek)
+        //            middlerStream.Seek(0, SeekOrigin.Begin);
 
-                try
-                {
-                    await middlerStream.CopyToAsync(context.Response.Body, 81920, context.RequestAborted);
-                }
-                catch (TaskCanceledException e)
-                {
-                    //ignore
-                }
+        //        try
+        //        {
+        //            await middlerStream.CopyToAsync(context.Response.Body, 81920, context.RequestAborted);
+        //        }
+        //        catch (TaskCanceledException e)
+        //        {
+        //            //ignore
+        //        }
 
-            }
+        //    }
 
-            await middlerStream.DisposeAsync().ConfigureAwait(false);
-        }
+        //    await middlerStream.DisposeAsync().ConfigureAwait(false);
+        //}
 
 
         private MiddlerRuleMatch? FindMatchingEndpoint(IMiddlerOptions middlerOptions, List<MiddlerRule> rule, MiddlerContext middlerContext)

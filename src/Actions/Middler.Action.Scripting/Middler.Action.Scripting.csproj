@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Middler.Common\Middler.Common.csproj" />
     <ProjectReference Include="..\..\Middler.Core\Middler.Core.csproj" />
     <ProjectReference Include="..\Middler.Action.ReverseProxy\Middler.Action.ReverseProxy.csproj" />
   </ItemGroup>

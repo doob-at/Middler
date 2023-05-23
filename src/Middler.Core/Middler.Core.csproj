@@ -25,15 +25,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Middler.Common.StreamHelper\Middler.Common.StreamHelper.csproj" />
-    <ProjectReference Include="..\Middler.Common\Middler.Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="doob.Reflectensions.CommonExtensions" Version="6.4.2" />
     <PackageReference Include="doob.Reflectensions.Json" Version="6.4.2" />
     <PackageReference Include="NamedServices.Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Middler.Common.StreamHelper\Middler.Common.StreamHelper.csproj" />
+    <ProjectReference Include="..\Middler.Common\Middler.Common.csproj" />
   </ItemGroup>
 
 </Project>

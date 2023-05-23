@@ -10,6 +10,8 @@ namespace doob.Middler.Action.Scripting.Models
 {
     public class ScriptContextResponse
     {
+
+        public object? ResponseBody { get; set; }
         public int StatusCode => _middlerResponse.Response.StatusCode;
 
         public Dictionary<string, string> Headers
@@ -26,34 +28,12 @@ namespace doob.Middler.Action.Scripting.Models
             _middlerResponse = middlerResponse;
             _scriptEngine = scriptEngine;
         }
-        
-        public void SetBody(object? body = null)
-        {
-            if (body != null)
-            {
-                var isArray = body.GetType().IsEnumerableType();
-                if (isArray)
-                {
-                    var list = new List<object>();
-                    var arr = body as IEnumerable;
-                    foreach (var o in arr!)
-                    {
-                        list.Add(o);
-                    }
-
-                    _middlerResponse.Response.SetBody(list);
-                    return;
-                }
-            }
-
-            _middlerResponse.Response.SetBody(body);
-            
-        }
+       
 
         public void Send(int statusCode, object? body = null)
         {
             _middlerResponse.Response.StatusCode = statusCode;
-            SetBody(body);
+            ResponseBody = body;
             
             _scriptEngine.Stop();
         }
@@ -105,8 +85,8 @@ namespace doob.Middler.Action.Scripting.Models
             {
                 Destination = url
             };
-            proxyAction.ExecuteRequestAsync(_middlerResponse).GetAwaiter();
-            _scriptEngine.Stop();
+            Send(200, proxyAction);
+            
         }
 
     }
